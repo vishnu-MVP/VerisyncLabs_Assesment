@@ -8,7 +8,7 @@ Welcome to **Dashing by Vishnu_MVP**, a beautifully crafted **interactive React 
 
 ## 🌟 Features
 
-- 🎇 **Animated Particle Background**: Smooth particle effects using TSParticles.
+- 🎇 **Animated Particle Background**: Smooth and Interactive particle effects using TSParticles.
 - 🕵️‍♂️ **Search Functionality**: Quickly find users by name or username.
 - 🗂️ **Sorting Options**: Sort users by **Name** or **Username**.
 - 🔊 **Sound Effects**:  
