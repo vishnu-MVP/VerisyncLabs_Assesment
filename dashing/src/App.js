@@ -6,9 +6,8 @@ import { motion } from "framer-motion";
 import { keyframes } from '@emotion/react';
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
-import useSound from 'use-sound'; // Import the use-sound hook
+import useSound from 'use-sound'; 
 
-// Import sound files
 import bgSound from './sounds/bg-sound.mp3';
 import hoverSound from './sounds/hover.wav';
 import modalOpenSound from './sounds/modal-open.wav';
@@ -244,7 +243,7 @@ function App() {
             whileHover={{ scale: 1.05 }}
             onMouseEnter={() => {
               setHoveredCard(user.id);
-              playHoverSound(); // Play sound on card hover
+              playHoverSound(); // I call the handler here to play Sound for card hover
             }}
             onMouseLeave={() => setHoveredCard(null)}
             style={{ position: "relative", width: "290px", height: "190px" }}
