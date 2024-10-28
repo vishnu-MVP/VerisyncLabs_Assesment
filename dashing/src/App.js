@@ -21,14 +21,13 @@ function App() {
   const [sortOption, setSortOption] = useState("name");
   const [hoveredCard, setHoveredCard] = useState(null);
   const particlesInitRef = useRef(false);
-
-  // Initialize sounds using the use-sound hook
-  const [playBgSound] = useSound(bgSound, { volume: 0.5, loop: true }); // Loop background sound
+  // I use these sounds to provide elevated experience
+  const [playBgSound] = useSound(bgSound, { volume: 0.5, loop: true }); //in loop for continuous BGM
   const [playHoverSound] = useSound(hoverSound, { volume: 0.1 });
   const [playModalOpenSound] = useSound(modalOpenSound, { volume: 1.0 });
 
   useEffect(() => {
-    playBgSound(); // Play background sound on component mount
+    playBgSound(); 
   }, [playBgSound]);
 
   const particlesInit = useCallback(async (engine) => {
@@ -58,6 +57,11 @@ function App() {
   const handleSearch = (e) => setSearch(e.target.value.toLowerCase());
   const handleSort = (option) => setSortOption(option);
 
+  const resetToHomeView = () => {
+    setSearch("");  setSortOption("name"); 
+    setSelectedUser(null); 
+    setIsModalOpen(false); 
+  };
   const filteredUsers = users
     .filter(
       (user) =>
@@ -76,7 +80,7 @@ function App() {
   const handleOpenModal = (user) => {
     setSelectedUser(user);
     setIsModalOpen(true);
-    playModalOpenSound(); // Play sound on modal open
+    playModalOpenSound(); // sound during modal open
   };
 
   const handleCloseModal = () => {
@@ -182,7 +186,7 @@ function App() {
           zIndex: -1,
         }}
       />
-
+  
       <Box
         p={6}
         mb={6}
@@ -192,6 +196,7 @@ function App() {
         textAlign="center"
         position="relative"
         overflow="hidden"
+        onClick={resetToHomeView}
         bg="#1e1e1e"
         background="linear-gradient(90deg, #ff6e40, #ff3f96, #ff6e40)"
         backgroundSize="200% 200%"
