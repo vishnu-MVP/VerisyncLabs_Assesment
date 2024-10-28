@@ -1,4 +1,4 @@
-# VerisyncLabs_Assesment
+# VerisyncLabs_Assessment
 🚀 Dashing by Vishnu_MVP 🎨
 Welcome to Dashing by Vishnu_MVP, a beautifully crafted interactive React app ✨ with stunning visuals, sound effects 🎵, and smooth animations 🎥. This app demonstrates a combination of dynamic UI elements, particles effects, searchable user lists, and an intuitive modal system. It's built with ❤️ using React, Chakra UI, Framer Motion, and TSParticles.
 
