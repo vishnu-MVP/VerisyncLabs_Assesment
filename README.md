@@ -1,6 +1,6 @@
 # VerisyncLabs_Assessment
 
-# 🚀 Dashing by Vishnu_MVP 🎨
+# 🚀 Dashing by Vishnu-MVP 🎨
 
 Welcome to **Dashing by Vishnu_MVP**, a beautifully crafted **interactive React app** ✨ with stunning visuals, sound effects 🎵, and smooth animations 🎥. This app demonstrates a combination of **dynamic UI elements**, **particle effects**, **searchable user lists**, and an intuitive **modal system**. It's built with ❤️ using React, Chakra UI, Framer Motion, and TSParticles.
 
@@ -8,14 +8,14 @@ Welcome to **Dashing by Vishnu_MVP**, a beautifully crafted **interactive React 
 
 ## 🌟 Features
 
-- 🎇 **Animated Particle Background**: Smooth particle effects using TSParticles.
+- 🎇 **Animated Particle Background**: Smooth and Interactive particle effects using TSParticles.
 - 🕵️‍♂️ **Search Functionality**: Quickly find users by name or username.
 - 🗂️ **Sorting Options**: Sort users by **Name** or **Username**.
 - 🔊 **Sound Effects**:  
   - **Background music**: Adds ambient vibes 🎶.  
   - **Hover sounds**: Feel the interaction with subtle sounds on hover.  
   - **Modal open sounds**: Engage users with delightful audio feedback.
-- 🏠 **Dynamic Home View Reset**: Title card doubles as a **reset button** with hover effects and subtle hints.
+- 🏠 **Dynamic Home View Reset**: Title card doubles as a **reset button** with hover effects.
 - 🖼️ **Modals with User Details**: View more information about users in beautiful modals.
 - 🎨 **Gradient Animations**: Smooth, animated gradients on the title and cards for a stunning effect.
 
@@ -25,7 +25,7 @@ Welcome to **Dashing by Vishnu_MVP**, a beautifully crafted **interactive React 
 
 Here's a sneak peek of the **Dashing by Vishnu_MVP** interface:
 
-![UI Preview](https://ibb.co/kKjdCGK)
+![alt text](https://github.com/vishnu-MVP/VerisyncLabs_Assessment/blob/main/dashing/src/UI/UI.PNG?raw=true)
 
 ---
 
