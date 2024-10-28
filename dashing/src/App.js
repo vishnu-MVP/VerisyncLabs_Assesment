@@ -6,6 +6,12 @@ import { motion } from "framer-motion";
 import { keyframes } from '@emotion/react';
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
+import useSound from 'use-sound'; // Import the use-sound hook
+
+// Import sound files
+import bgSound from './sounds/bg-sound.mp3';
+import hoverSound from './sounds/hover.wav';
+import modalOpenSound from './sounds/modal-open.wav';
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -15,6 +21,15 @@ function App() {
   const [sortOption, setSortOption] = useState("name");
   const [hoveredCard, setHoveredCard] = useState(null);
   const particlesInitRef = useRef(false);
+
+  // Initialize sounds using the use-sound hook
+  const [playBgSound] = useSound(bgSound, { volume: 0.5, loop: true }); // Loop background sound
+  const [playHoverSound] = useSound(hoverSound, { volume: 0.1 });
+  const [playModalOpenSound] = useSound(modalOpenSound, { volume: 1.0 });
+
+  useEffect(() => {
+    playBgSound(); // Play background sound on component mount
+  }, [playBgSound]);
 
   const particlesInit = useCallback(async (engine) => {
     if (!particlesInitRef.current) {
@@ -61,6 +76,7 @@ function App() {
   const handleOpenModal = (user) => {
     setSelectedUser(user);
     setIsModalOpen(true);
+    playModalOpenSound(); // Play sound on modal open
   };
 
   const handleCloseModal = () => {
@@ -70,7 +86,8 @@ function App() {
 
   const gradientAnimation = keyframes`
     0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    50% { background
+    position: 100% 50%; }
     100% { background-position: 0% 50%; }
   `;
 
@@ -220,9 +237,12 @@ function App() {
           <motion.div
             key={user.id}
             whileHover={{ scale: 1.05 }}
-            style={{ position: "relative", width: "290px", height: "190px" }}
-            onMouseEnter={() => setHoveredCard(user.id)}
+            onMouseEnter={() => {
+              setHoveredCard(user.id);
+              playHoverSound(); // Play sound on card hover
+            }}
             onMouseLeave={() => setHoveredCard(null)}
+            style={{ position: "relative", width: "290px", height: "190px" }}
           >
             <Box
               borderRadius="lg"
@@ -291,58 +311,58 @@ function App() {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <div style={{
-          backgroundColor: '#1e1e1e',
-          padding: '20px',
-          borderRadius: '8px',
-          boxShadow: '0 0 20px #ff6e40, 0 0 30px #ff3f96',
-          color: 'white',
-          maxWidth: '500px',
-          width: '100%',
-          position: 'relative',
-          overflow: 'hidden',
-        }}>
           <div style={{
-            content: '',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
+            backgroundColor: '#1e1e1e',
+            padding: '20px',
             borderRadius: '8px',
-            border: '2px solid transparent',
-            borderImage: 'linear-gradient(90deg, #ff6e40, #ff3f96, #ff6e40)',
-            borderImageSlice: 1,
-            zIndex: 1,
-            pointerEvents: 'none',
-          }} />
-          <Text fontSize="2xl" fontWeight="bold" textShadow="0 0 10px #ff3f96" zIndex={2} position="relative">
-            {selectedUser?.name}
-          </Text>
-          <Text mt={4} zIndex={2} position="relative">Phone: {selectedUser?.phone}</Text>
-          <Text zIndex={2} position="relative">Website: {selectedUser?.website}</Text>
-          <Text zIndex={2} position="relative">
-            Address: {selectedUser?.address.street}, {selectedUser?.address.city}
-          </Text>
-          <Button
-            mt={6}
-            bg="#2a2a2a"
-            color="white"
-            onClick={handleCloseModal}
-            zIndex={2}
-            boxShadow="0 0 10px #ff6e40, 0 0 15px #ff3f96"
-            _hover={{
-              bgGradient: 'linear(to-br, #ff6e40, #ff3f96, #ff6e40)',
-              color: 'white',
-            }}
-          >
-            Close
-          </Button>
+            boxShadow: '0 0 20px #ff6e40, 0 0 30px #ff3f96',
+            color: 'white',
+            maxWidth: '500px',
+            width: '100%',
+            position: 'relative',
+            overflow: 'hidden',
+          }}>
+            <div style={{
+              content: '',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              borderRadius: '8px',
+              border: '2px solid transparent',
+              borderImage: 'linear-gradient(90deg, #ff6e40, #ff3f96, #ff6e40)',
+              borderImageSlice: 1,
+              zIndex: 1,
+              pointerEvents: 'none',
+            }} />
+            <Text fontSize="2xl" fontWeight="bold" textShadow="0 0 10px #ff3f96" zIndex={2} position="relative">
+              {selectedUser?.name}
+            </Text>
+            <Text mt={4} zIndex={2} position="relative">Phone: {selectedUser?.phone}</Text>
+            <Text zIndex={2} position="relative">Website: {selectedUser?.website}</Text>
+            <Text zIndex={2} position="relative">
+              Address: {selectedUser?.address.street}, {selectedUser?.address.city}
+            </Text>
+            <Button
+              mt={6}
+              bg="#2a2a2a"
+              color="white"
+              onClick={handleCloseModal}
+              zIndex={2}
+              boxShadow="0 0 10px #ff6e40, 0 0 15px #ff3f96"
+              _hover={{
+                bgGradient: 'linear(to-br, #ff6e40, #ff3f96, #ff6e40)',
+                color: 'white',
+              }}
+            >
+              Close
+            </Button>
+          </div>
         </div>
-      </div>
-    )}
-  </Box>
-);
+      )}
+    </Box>
+  );
 }
 
 export default App;
