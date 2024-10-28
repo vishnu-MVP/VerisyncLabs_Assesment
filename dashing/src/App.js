@@ -105,9 +105,16 @@ function App() {
         backgroundSize="200% 200%"
         animation={`${gradientAnimation} 3s ease infinite`}
       >
-        <Text fontSize="2xl" fontWeight="bold" zIndex={2} position="relative">
-          Dashing by Vishnu_SASTRA
-        </Text>
+        <Text
+  fontSize="2xl"
+  fontWeight="bold"
+  zIndex={2}
+  position="relative"
+ 
+ 
+>
+  Dashing by Vishnu_MVP
+</Text>
       </Box>
 
       {/* Search Bar */}
