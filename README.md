@@ -1,2 +1,2 @@
 # VerisyncLabs_Assesment
-The repo is for  assesments of Veisync labs 
+The repo is for  assesments of Verisync labs 
