@@ -15,7 +15,7 @@ Welcome to **Dashing by Vishnu_MVP**, a beautifully crafted **interactive React 
   - **Background music**: Adds ambient vibes 🎶.  
   - **Hover sounds**: Feel the interaction with subtle sounds on hover.  
   - **Modal open sounds**: Engage users with delightful audio feedback.
-- 🏠 **Dynamic Home View Reset**: Title card doubles as a **reset button** with hover effects and subtle hints.
+- 🏠 **Dynamic Home View Reset**: Title card doubles as a **reset button** with hover effects.
 - 🖼️ **Modals with User Details**: View more information about users in beautiful modals.
 - 🎨 **Gradient Animations**: Smooth, animated gradients on the title and cards for a stunning effect.
 
