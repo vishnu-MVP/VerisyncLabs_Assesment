@@ -25,7 +25,7 @@ Welcome to **Dashing by Vishnu_MVP**, a beautifully crafted **interactive React 
 
 Here's a sneak peek of the **Dashing by Vishnu_MVP** interface:
 
-![UI Preview](https://ibb.co/kKjdCGK)
+![alt text](https://github.com/vishnu-MVP/[VerisyncLabs_Assessment]/blob/main/UI.PNG?raw=true)
 
 ---
 
