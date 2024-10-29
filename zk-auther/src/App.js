@@ -6,11 +6,11 @@ import { keyframes } from "@emotion/react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import useSound from "use-sound";
-import init, { get_pass_hash, generate_proof, verify_proof } from "./pkg/zk_wasm.js";
 
 import bgSound from "./sounds/bg-sound.mp3";
 import hoverSound from "./sounds/hover.wav";
 import modalOpenSound from "./sounds/modal-open.wav";
+import init, { get_pass_hash, generate_proof, verify_proof } from "./pkg/zk_wasm.js";
 
 const gradientAnimation = keyframes`
   0% { background-position: 0% 50%; }
@@ -42,12 +42,36 @@ function App() {
   }, []);
 
   const particlesOptions = useMemo(() => ({
+    fullScreen: { enable: false }, // Prevent it from covering the whole screen
     particles: {
       number: { value: 80, density: { enable: true, area: 800 } },
       color: { value: "#ffffff" },
-      size: { value: { min: 1, max: 3 }, anim: { speed: 4, size_min: 0.3 } },
-      move: { random: true, speed: 2, outModes: { default: "out" } },
+      size: {
+        value: { min: 1, max: 3 },
+        random: true,
+        anim: { speed: 4, size_min: 0.3 },
+      },
+      links: { enable: false },
+      move: {
+        enable: true,
+        random: true,
+        speed: 2,
+        direction: "none",
+        outModes: { default: "out" },
+        straight: false,
+      },
     },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "bubble" },
+        onClick: { enable: true, mode: "repulse" },
+      },
+      modes: {
+        bubble: { distance: 250, duration: 2, size: 0, opacity: 0 },
+        repulse: { distance: 300, duration: 2 },
+      },
+    },
+    detectRetina: true,
     background: { color: { value: "#141414" } },
   }), []);
 
@@ -57,7 +81,7 @@ function App() {
   };
 
   const handleRegister = async () => {
-    const hashedPassword = get_pass_hash(password); // Use WASM function
+    const hashedPassword = get_pass_hash(password);
     localStorage.setItem(username, JSON.stringify(hashedPassword));
     showToast("Registration successful!", "success");
     setIsLoginView(false);
@@ -70,8 +94,8 @@ function App() {
       return;
     }
 
-    const proof = await generate_proof(username, password); // Generate proof
-    const isValid = verify_proof(proof, storedHash, username); // Verify proof
+    const proof = await generate_proof(username, password);
+    const isValid = verify_proof(proof, storedHash, username);
 
     if (isValid) {
       showToast("Login successful!", "success");
@@ -96,7 +120,14 @@ function App() {
         id="tsparticles"
         init={particlesInit}
         options={particlesOptions}
-        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: -1 }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: -1,
+        }}
       />
 
       {toastMessage && (
