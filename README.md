@@ -68,6 +68,7 @@ npm install
 
 This project demonstrates the implementation of a **Zero-Knowledge (ZK) Proof-based Authentication System** using the **zkAuth kit**. The focus is on creating a secure registration and login flow with **WASM integration** for ZK-proof generation and verification. This approach ensures the user's password and proof are managed securely on the frontend.
 
+Check the live website [here](https://zk-auther-vishnu-mvp.onrender.com)
 ## 🌟 Features
 
 - **Registration Flow**:
