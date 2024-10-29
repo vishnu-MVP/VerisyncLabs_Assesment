@@ -1,6 +1,6 @@
 # VerisyncLabs_Assessment
 
-# 🚀 Dashing by Vishnu-MVP 🎨
+# Q1 : 🚀 Dashing by Vishnu-MVP 🎨
 
 Welcome to **Dashing by Vishnu_MVP**, a beautifully crafted **interactive React Dashboard app** ✨ with stunning visuals, sound effects 🎵, and smooth animations 🎥. This app demonstrates a combination of **dynamic UI elements**, **particle effects**, **searchable user lists**, and an intuitive **modal system**. It's built with ❤️ using React, Chakra UI, Framer Motion, and TSParticles.
 
@@ -62,3 +62,37 @@ Clone the repository and install the dependencies:
 git clone https://github.com/your-username/dashing-by-vishnu-mvp.git
 cd dashing-by-vishnu-mvp
 npm install
+```
+
+# Q2 : 🛡️ ZK-Based Authentication System Using zkAuth Kit 🔒
+
+This project demonstrates the implementation of a **Zero-Knowledge (ZK) Proof-based Authentication System** using the **zkAuth kit**. The focus is on creating a secure registration and login flow with **WASM integration** for ZK-proof generation and verification. This approach ensures the user's password and proof are managed securely on the frontend.
+
+## 🌟 Features
+
+- **Registration Flow**:
+  - Users register by entering their **desired username** and **password**.
+  - The password is hashed using the **get_pass_hash()** function from the zkAuth WASM package.
+  - The hashed password is stored locally (simulated backend).
+
+- **Login Flow**:
+  - Users log in by providing their **username** and **password**.
+  - A **ZK-proof** is generated using the **generate_proof()** function from the WASM package.
+  - The proof is sent to the simulated backend along with the username.
+  - The **verify_proof()** function is used to check the proof against the stored hash.
+  - **Success or failure messages** are displayed based on proof verification.
+
+## 🛠️ Tech Stack
+
+- **React** ⚛️: For building the UI and managing state.
+- **Chakra UI** 🌈: To maintain a clean and visually appealing design.
+- **Framer Motion** 🎥: For smooth animations.
+- **tsparticles** 🎇: For engaging particle effects in the background.
+- **WASM** 🛡️: To generate and verify Zero-Knowledge proofs.
+
+
+## 📸 Preview
+
+Here's a sneak peek of the **Authentication using the ZK- WASM** interface:
+
+![alt text](https://github.com/vishnu-MVP/VerisyncLabs_Assessment/blob/main/dashing/src/UI/UI2.PNG?raw=true)
